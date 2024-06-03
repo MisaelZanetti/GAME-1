@@ -1,6 +1,6 @@
 let spr;
-let spr2;
-let spr3;
+let balaroja;
+let balaverde;
 let xc = 375;
 let xb;
 let yb = -100;
@@ -25,44 +25,55 @@ function draw() {
     fill(0, 255, 0);
     noStroke();
     drawSprites();
-    if (vidas < 0) {
-        gameover();
-    }
-    if (spr2.overlap(spr)) {
-        vidas --;
-        spr2.position.y = -100;
-        spr2.position.x = random(0, 800);
-    }
-    if (spr2.position.y > 700) {
+    if (balaverde.overlap(spr)) {
         puntos ++;
-        spr2.position.y = -100;
-        spr2.position.x = random(0, 800);
+        balaverde.position.y = -5000;
+        balaverde.position.x = random(0, 800);
+    }
+    if (balaverde.position.y > 700) {
+        puntos --;
+        balaverde.position.y = -5000;
+        balaverde.position.x = random(0, 800);
+    }
+    if (balaroja.overlap(spr)) {
+        vidas --;
+        balaroja.position.y = -100;
+        balaroja.position.x = random(0, 800);
+    }
+    if (balaroja.position.y > 700) {
+        puntos ++;
+        balaroja.position.y = -100;
+        balaroja.position.x = random(0, 800);
     }
     if((spr.position.x - 20) < 5){
-        spr.position.x+=5;
+        spr.position.x+=10;
     }
     if((spr.position.x + 20) > 795){
-        spr.position.x-=5;
+        spr.position.x-=10;
     }
     if (keyIsDown(LEFT_ARROW) === true) {
-        spr.velocity.x = -5;
+        spr.velocity.x = -10;
     }
     if (keyIsDown(RIGHT_ARROW) === true) {
-        spr.velocity.x = 5;
+        spr.velocity.x = 10;
+    }   
+    if (vidas === 0) {
+        gameover();
     }
 }
 function balas() {
     xb = random(0, 800);
-    spr2 = createSprite(xb, yb, 20, 20);
-    spr2.shapeColor = color(255, 0, 0);
-    spr2.velocity.y = 5;
-    spr3 = createSprite(xb2, yb2, 20, 20);
-    spr3.shapeColor = color(0, 255, 0);
-    spr3.velocity.y = 5;
+    balaroja = createSprite(xb, yb, 20, 20);
+    balaroja.shapeColor = color(255, 0, 0);
+    balaroja.velocity.y = 10;
+    xb2 = random(0, 800);
+    balaverde = createSprite(xb2, yb2, 20, 20);
+    balaverde.shapeColor = color(0, 255, 0);
+    balaverde.velocity.y = 10;
 }
 function gameover() {
     clear();
-    spr2.velocity.y = 0;
+    balaroja.velocity.y = 0;
     background(220);
     textAlign(CENTER);
     textSize(100);
