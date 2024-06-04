@@ -74,6 +74,7 @@ function balas() {
 function gameover() {
     clear();
     balaroja.velocity.y = 0;
+    balaverde.velocity.y = 0;
     background(220);
     textAlign(CENTER);
     textSize(100);
