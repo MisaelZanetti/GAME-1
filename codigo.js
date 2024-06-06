@@ -13,7 +13,7 @@ function setup() {
     createCanvas(800, 700);
     spr = createSprite(xc, 650, 40, 40);
     spr.shapeColor = color(0, 255, 0);
-    spr.velocity.x = 50;
+    spr.velocity.x = 0;
     balas();
 }
 function draw() {
