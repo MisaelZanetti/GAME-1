@@ -13,7 +13,7 @@ function setup() {
     createCanvas(800, 700);
     spr = createSprite(xc, 650, 40, 40);
     spr.shapeColor = color(0, 255, 0);
-    spr.velocity.x = 0;
+    spr.velocity.x = 50;
     balas();
 }
 function draw() {
@@ -72,13 +72,13 @@ function balas() {
     balaverde.velocity.y = 10;
 }
 function gameover() {
-    clear();
     balaroja.velocity.y = 0;
     balaverde.velocity.y = 0;
     background(220);
     textAlign(CENTER);
     textSize(100);
     fill(0,0,255);
+    textStyle(BOLD);
     text("GAME OVER", width / 2, height / 2);
     textSize(70);
     fill(0);
